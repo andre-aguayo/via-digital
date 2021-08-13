@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 /**
  * Grupo de rotas permitidas apenas para usuarios logados
  */
@@ -28,6 +30,16 @@ Route::group(['middleware' => 'auth'], function () {
 /**
  * Rota para a pagina de login
  */
-Route::get('/login', function () {
-    return view('login');
+Route::get('/login',  [LoginController::class, 'index'])->name('login');
+
+/**
+ * Rota paralogar o usuario
+ */
+Route::post('/requisitar-login', [LoginController::class, 'login']);
+
+/**
+ * Rota para a pagina de cadastro
+ */
+Route::get('/cadastro', function () {
+    return view('user/register');
 })->name('login');
