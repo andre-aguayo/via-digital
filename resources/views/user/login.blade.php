@@ -8,7 +8,7 @@
                 <div class="card-img-left d-none d-md-flex">
                 </div>
                 <div class="card-body p-4 p-sm-5">
-                    <h5 class="card-title text-center mb-5 fw-light fs-5">Cadasto</h5>
+                    <h5 class="card-title text-center mb-5 fw-light fs-5">Login</h5>
                     @if ($errors->all())
                         @foreach ($errors->all() as $error)
                             <p class="text-center" style="color: red">{{ $error }}</p>
