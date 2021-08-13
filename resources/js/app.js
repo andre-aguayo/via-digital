@@ -6,8 +6,6 @@
 
 require('./bootstrap');
 
-import validationlogin from './components/ValidationLogin.vue';
-
 import { createApp } from 'vue';
 
 let Vue = createApp({})

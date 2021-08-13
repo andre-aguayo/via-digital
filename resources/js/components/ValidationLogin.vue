@@ -4,6 +4,7 @@
   text-align: center;
 }
 </style>
+
 <template id="app">
   <p id="msg_danger">@{{ msg }}</p>
 </template>

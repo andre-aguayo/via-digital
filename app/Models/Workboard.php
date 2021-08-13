@@ -9,7 +9,7 @@ class Workboard extends Model
 {
     use HasFactory;
 
-        /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -23,7 +23,7 @@ class Workboard extends Model
      */
     public function userWorkboardAccess()
     {
-        return $this->belongsTo(UserWorkboardAccess::class);
+        return $this->hasOne(UserWorkboardAccess::class);
     }
 
     /**

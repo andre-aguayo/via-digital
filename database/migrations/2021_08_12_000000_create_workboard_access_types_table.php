@@ -29,6 +29,10 @@ class CreateWorkboardAccessTypesTable extends Migration
             // define o acesso total ao quadro de trabalho
             'description' => 'full_access',
         ]);
+        DB::table('workboard_access_types')->insert([
+            // define o acesso total ao quadro de trabalho
+            'description' => 'reade_only',
+        ]);
     }
 
     /**

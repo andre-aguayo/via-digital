@@ -19074,8 +19074,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ValidationLogin_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ValidationLogin.vue */ "./resources/js/components/ValidationLogin.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -19084,8 +19083,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
-
-var Vue = (0,vue__WEBPACK_IMPORTED_MODULE_1__.createApp)({});
+var Vue = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createApp)({});
 Vue.component('validation-login', __webpack_require__(/*! ./components/ValidationLogin.vue */ "./resources/js/components/ValidationLogin.vue").default);
 Vue.mount("#app");
 

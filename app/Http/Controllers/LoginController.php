@@ -16,8 +16,8 @@ class LoginController extends Controller
     {
         if (Auth::attempt(
             [
-                'email' => $request->email,
-                'password' => $request->password
+                'email' => $request->user_email,
+                'password' => $request->user_password
             ],
             true
         ) === true) {

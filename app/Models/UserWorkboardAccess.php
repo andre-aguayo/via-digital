@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserWorkboardAccess extends Model
 {
     use HasFactory;
-        /**
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -24,7 +24,7 @@ class UserWorkboardAccess extends Model
      */
     public function user()
     {
-        return $this->belong(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -32,14 +32,14 @@ class UserWorkboardAccess extends Model
      */
     public function workboard()
     {
-        return $this->hasOne(Workboard::class);
+        return $this->belongsTo(Workboard::class, 'workboard_id', 'id');
     }
- 
+
     /**
      * Define o tipo de acesso que o usuario possui ao quadro de trabalho em questao
      */
     public function workboardAccessType()
     {
-        return $this->hasOne(WorkboardAccessType::class);
+        return $this->belongsTo(WorkboardAccessType::class);
     }
 }

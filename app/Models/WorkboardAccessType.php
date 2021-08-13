@@ -23,6 +23,6 @@ class WorkboardAccessType extends Model
      */
     public function userWorkboardAccess()
     {
-        return $this->belongsToMany(UserWorkboardAccess::class);
+        return $this->hasMany(UserWorkboardAccess::class);
     }
 }

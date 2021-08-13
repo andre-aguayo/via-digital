@@ -25,7 +25,7 @@ class CreateUserFormRequest extends FormRequest
     {
         return [
             "user_name" => "required",
-            "user_email" => ["required", "email:rfc,dns"],
+            "user_email" => ["required", "email:rfc,dns", "unique:users,email"],
             "user_password" => ["required", "min:8"]
         ];
     }
@@ -36,6 +36,7 @@ class CreateUserFormRequest extends FormRequest
             'user_name.required' => 'O campo nome é obrigatório',
             'user_email.required' => 'O campo email é obrigatório',
             'user_email.email' => 'Formato de email incorreto',
+            'user_email.unique' => 'Este email já esta cadastrado',
             'user_password.required' => 'O campo senha é obrigatório',
             'user_password.min' => 'A senha deve conter no minimo 8 caracteres'
         ];

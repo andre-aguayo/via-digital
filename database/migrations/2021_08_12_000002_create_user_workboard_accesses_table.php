@@ -26,7 +26,8 @@ class CreateUserWorkboardAccessesTable extends Migration
 
             $table->unsignedBigInteger('workboard_acess_type_id')
                 ->references('id')
-                ->on('workboard_access_types');
+                ->on('workboard_access_types')
+                ->default(1);
 
             $table->timestamps();
         });
