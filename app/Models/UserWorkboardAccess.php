@@ -32,7 +32,7 @@ class UserWorkboardAccess extends Model
      */
     public function workboard()
     {
-        return $this->belongsTo(Workboard::class, 'workboard_id', 'id');
+        return $this->hasOne(Workboard::class, 'id');
     }
 
     /**

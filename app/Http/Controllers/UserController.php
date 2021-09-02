@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateUserFormRequest;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
 use App\Models\User;
 
 class UserController extends Controller
@@ -14,17 +13,23 @@ class UserController extends Controller
         return view('user/register');
     }
 
+    /**
+     * Salva o usuario no banco de dados
+     */
     public function save(CreateUserFormRequest $request)
     {
         $user = $this->createUser($request);
 
         if ($user->save()) {
 
-            return redirect('/login');
+            return redirect('/login')->withErrors("Cadastro realizado com sucesso!");
         }
         return redirect('/cadastro')->withErrors("Erro ao cadastrar email");
     }
 
+    /**
+     * Cria o model do usuario
+     */
     private function createUser(CreateUserFormRequest $request): User
     {
         $user = new User();

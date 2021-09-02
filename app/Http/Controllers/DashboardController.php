@@ -8,9 +8,9 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $userWorkboardAccess  = $this->requestAllUserWorkboardAccessess();
-        
-        return view('/index', ['userWorkboardAccess' => $userWorkboardAccess]);
+        $userWorkboardAccess = $this->requestAllUserWorkboardAccessess();
+
+        return view('dashboard/index', ['userWorkboardsAccesses' => $userWorkboardAccess]);
     }
 
     /**

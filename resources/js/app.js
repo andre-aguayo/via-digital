@@ -8,8 +8,15 @@ require('./bootstrap');
 
 import { createApp } from 'vue';
 
-let Vue = createApp({})
+let Vue = createApp({});
 
-Vue.component('validation-login', require('./components/ValidationLogin.vue').default);
+//formulario de login
+Vue.component('form-login', require('./components/user-components/form-login.vue').default);
+
+//formulario de cadastro do usuario
+Vue.component('form-register', require('./components/user-components/form-register.vue').default);
+
+//script de dashboard
+Vue.component('form-workboard', require('./components/dashboard/index.vue').default);
 
 Vue.mount("#app");

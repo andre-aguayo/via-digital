@@ -23,7 +23,7 @@ class Workboard extends Model
      */
     public function userWorkboardAccess()
     {
-        return $this->hasOne(UserWorkboardAccess::class);
+        return $this->belongsTo(UserWorkboardAccess::class);
     }
 
     /**

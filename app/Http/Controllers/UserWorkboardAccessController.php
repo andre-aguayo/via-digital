@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class UserWorkboardAccessController extends Controller
 {
+    /**
+     * Cria o tipo de acesso ao quadro de trabalho criado
+     */
     public function create(Workboard $workboard)
     {
         $workboardId = $workboard->id;
@@ -18,29 +21,21 @@ class UserWorkboardAccessController extends Controller
         ]);
     }
 
+    /**
+     * Recupera os acessos do usuario aos quadros de trabaho
+     */
     public function requestAllWorkboardsOfUser(int $userId)
     {
-        $userWorkboardAccessController =  UserWorkboardAccess::where('user_id', $userId)->get();
+        $userWorkboardAccess =  UserWorkboardAccess::where('user_id', $userId)->with('workboard')->get();
 
-        return $this->requestWorkboardsAccess($userWorkboardAccessController);
+        return $userWorkboardAccess;
     }
 
     /**
-     * Recupera os quadros de trabalho em q o usuario possui a cesso
+     * recupera o acesso e o tipo de acesso ao quadro de trabalho
      */
-    private function requestWorkboardsAccess($userWorkboardAccessControllers)
+    public function requestUserAccessToWorkboard(int $workboardId, int $userId)
     {
-        $userWorkboardAccess = [];
-
-        $workboardController = new WorkboardController();
-
-        foreach ($userWorkboardAccessControllers as $userWorkboardAccessController) {
-            $workboardName = $workboardController->findWorkboardOfWorkboardAccess($userWorkboardAccessController->id)[0]->name;
-
-            $userWorkboardAccessController->workboard_name = $workboardName;
-
-            $userWorkboardAccess[] = $userWorkboardAccessController;
-        }
-        return $userWorkboardAccess;
+        return UserWorkboardAccess::where(['workboard_id' => $workboardId, 'user_id' => $userId])->first();
     }
 }

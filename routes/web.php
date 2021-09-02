@@ -6,17 +6,6 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\WorkboardController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 /**
  * Grupo de rotas permitidas apenas para usuarios logados
  */
@@ -28,9 +17,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
     /**
-     * Rota criar novo quadro de trabalho
+     * Rota para criar novo quadro de trabalho
      */
     Route::post('/requisitar-novo-quadro-de-trabalho', [WorkboardController::class, 'create']);
+
+    /**
+     * Mostra o quadro de trabalho e seus atriutos
+     */
+    Route::get('/quadro-de-trabalho/{workboard_id}/{workboard_name}', [WorkboardController::class, 'index'])->name('workboard');
 });
 
 /**

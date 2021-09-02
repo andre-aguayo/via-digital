@@ -27,6 +27,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@vuelidate/core": "^2.0.0-alpha.24",
+        "@vuelidate/validators": "^2.0.0-alpha.21",
         "vuelidate": "^0.7.6"
     }
 }

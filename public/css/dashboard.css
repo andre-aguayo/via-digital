@@ -1,0 +1,8 @@
+.workboard {
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+.new-workboard {
+    cursor: pointer;
+}

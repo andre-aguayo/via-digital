@@ -9,6 +9,9 @@ class LoginController extends Controller
 {
     public function index()
     {
+        //primeiro desloga o usuario antes de renderizar a view
+        $this->logout();
+
         return view('user/login');
     }
 
@@ -24,5 +27,11 @@ class LoginController extends Controller
             return redirect('/');
         }
         return redirect()->back()->withInput()->withErrors(['Os dados informados são incorretos!']);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('login');
     }
 }
