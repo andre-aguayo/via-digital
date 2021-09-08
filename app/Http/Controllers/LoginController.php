@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginFormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -26,12 +27,12 @@ class LoginController extends Controller
         ) === true) {
             return redirect('/');
         }
-        return redirect()->back()->withInput()->withErrors(['Os dados informados são incorretos!']);
+        return redirect()->back()->withInput()->with('error', 'Os dados informados são incorretos!');
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect('login');
+        return redirect('/login')->with('success', 'Deslogado com sucesso.');
     }
 }

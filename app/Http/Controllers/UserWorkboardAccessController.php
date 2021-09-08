@@ -11,13 +11,11 @@ class UserWorkboardAccessController extends Controller
     /**
      * Cria o tipo de acesso ao quadro de trabalho criado
      */
-    public function create(Workboard $workboard)
+    public function store(Workboard $workboard)
     {
-        $workboardId = $workboard->id;
-
         $workboard->userWorkboardAccess()->create([
             'user_id' => Auth::user()->id,
-            'workboard_id' => $workboardId
+            'workboard_id' => $workboard->id
         ]);
     }
 
